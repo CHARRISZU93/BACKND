@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "name": "servidor-con-express",
+  "version": "1.0.0",
+  "main": "servidor.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node servidor.js",
+    "start-dev": "nodemon servidor.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

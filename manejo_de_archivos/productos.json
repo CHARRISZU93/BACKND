@@ -1,17 +1,17 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "name": "Cama",
-        "price": "100"
+        "price": 100
     },
     {
-        "id": "2",
+        "id": 2,
         "name": "Silla",
-        "price": "200"
+        "price": 200
     },
     {
-        "id": "3",
+        "id": 3,
         "name": "Mesa",
-        "price": "300"
+        "price": 300
     }
 ]

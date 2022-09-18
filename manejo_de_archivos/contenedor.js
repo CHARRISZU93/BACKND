@@ -4,10 +4,32 @@ class Contenedor {
 
     constructor(nombre) {
         this.nombre = nombre;
-        }
+    }
 
-    async save (info) {
-        try{
+    async addProduct(producto) {
+        try {
+            let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
+            let contenidoJson = JSON.parse(contenido);
+            contenidoJson.push(producto);
+            await fs.promises.writeFile(`./${this.nombre}`, JSON.stringify(contenidoJson));
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getNextId() {
+        try {
+            let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
+            let contenidoJson = JSON.parse(contenido);
+            let ultimoId = contenidoJson[contenidoJson.length - 1].id;
+            return ultimoId + 1;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async save(info) {
+        try {
             let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
             let contenidoJson = JSON.parse(contenido);
             let lastIndex = contenidoJson.length - 1;
@@ -20,80 +42,82 @@ class Contenedor {
             return id;
 
         }
-        catch(error){}
+        catch (error) { }
 
         return id
     }
 
-    async getById (id) {
-        try{
+    async getById(id) {
+        try {
             let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
             let contenidoJson = JSON.parse(contenido);
             let contenidoFiltrado
             contenidoJson.forEach(element => {
-                if(element.id == id){
+                if (element.id == id) {
                     contenidoFiltrado = element;
                 }
             });
             return contenidoFiltrado;
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     }
 
-    async getAll () {
-        try{
+    async getAll() {
+        try {
             let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
             let contenidoJson = JSON.parse(contenido);
             return contenidoJson;
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     }
 
-    async deleteById (id) {
-        try{
+    async deleteById(id) {
+        try {
             let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
             let contenidoJson = JSON.parse(contenido);
             let contenidoFiltrado
             contenidoJson.forEach(element => {
-                if(element.id == id){
+                if (element.id == id) {
                     contenidoFiltrado = element;
                 }
             });
             contenidoJson.splice(contenidoJson.indexOf(contenidoFiltrado), 1);
             await fs.promises.writeFile(`./${this.nombre}`, JSON.stringify(contenidoJson));
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     }
 
-    async deleteAll () {
-        try{
+    async deleteAll() {
+        try {
             let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
             let contenidoJson = JSON.parse(contenido);
             contenidoJson = [];
             await fs.promises.writeFile(`./${this.nombre}`, JSON.stringify(contenidoJson));
 
-    }
-        catch(error){
+        }
+        catch (error) {
             console.log(error);
         }
-}
+    }
 }
 
 let contenedor = new Contenedor('./productos.json');
 
-let contenidoNuevo = {
+/* let contenidoNuevo = {
     "id": 4,
     "nombre": 'comedor',
     "precio": 1000
-}
+} */
 
-/* contenedor.save(contenidoNuevo).then( rtapromise => {
+contenedor.addProduct().then(() => console.log('producto agregado'));   
+
+/* contenedor.save().then(rtapromise => {
     console.log(rtapromise);
 })  */
 
@@ -102,8 +126,8 @@ let contenidoNuevo = {
 }
 ) */
 
-contenedor.getAll().then( result => result ).then( result => console.log(result) );
-    
+contenedor.getAll().then(result => result).then(result => console.log(result));
+
 
 /* contenedor.deleteById(2).then( result => {
     console.log(result);

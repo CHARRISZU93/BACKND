@@ -2,9 +2,9 @@ const express = require('express');
 const apiRoutes = require('./routers/app.routers');
 const Contenedor = require('../manejo_de_archivos/contenedor')
 
-
 const app = express();
 
+// hbs
 app.engine('hbs', engine({
     extname: 'hbs',
     defaultLayout: 'indexhbs.hbs',
@@ -15,9 +15,11 @@ app.engine('hbs', engine({
 app.set('views', './hbs/views');
 app.set('view engine', 'hbs');    
 
+// ejs
 app.set('views', './ejs/views');
 app.set('view engine', 'ejs');
 
+// pug
 app.set('views, ./pug/views');
 app.set('view engine', 'pug');
 
@@ -33,6 +35,17 @@ app.use(express.static('public'));
 // Routes
 app.use('/api', apiRoutes);
 
+// hbs
+app.get('/productoshbs', (req, res) => {
+  res.render('indexhbs', { productos: contenedor.getAll() });
+});
+
+app.post('/productoshbs', (req, res) => {
+  contenedor.addProduct(req.body);
+  res.redirect('/productoshbs');
+});
+
+// ejs
 app.get('/productosejs', (req, res) => {
   res.render('indexejs', { productos: contenedor.getAll() });
 });
@@ -42,6 +55,8 @@ app.post('/productosejs', (req, res) => {
   res.redirect('/productosejs');
 });
 
+
+// pug
 app.get('/productospug', (req, res) => {
   res.render('indexpug', { productos: contenedor.getAll() });
 });
@@ -55,3 +70,5 @@ app.post('/productospug', (req, res) => {
 const connectedServer = app.listen(PORT, ()=> {
   console.log(`Server is up and running on port ${PORT}`);
 });
+
+connectedServer.on('error', error => console.log(`Server error: ${error}`));

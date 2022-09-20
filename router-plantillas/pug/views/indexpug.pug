@@ -7,28 +7,27 @@ html(lang="en")
         link(<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
   integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous")
         title Document
-    body 
-        h3(class="text-primary") Datos del producto 
-        form(action="/productospug", method="POST")
-            div(class="form-group")
-                label(for="name" class="font-weight-bold") Nombre
-                input(type="text", name="name", id="title")
-            div(class="form-group")
-                label(for="price" class="font-weight-bold") Precio
-                input(type="number", name="price", id="price")
-            button(type="submit" class="btn btn-success mt-3 mb-5") Enviar
-        br
-        h3(class="text-primary") Productos agregados 
-        br
-            -if(productos.length > 0)
-                div(class="table-responsive") 
-                    table(class="table table-dark")
-                        tr(class="text-warning") 
-                            th(class="font-weight-bold") Nombre
-                            th(class="font-weight-bold") Precio
-                        each producto in productos
-                            tr 
-                                td= producto.name
-                                td= producto.price
-            -else
-                h3(class="alert alert-danger") no se encontraron datos
+    body
+        div(class="container mt-3 jumbotron") 
+            h3(class="text-primary") Datos del producto 
+            form(action="/productospug", method="POST")
+                div(class="form-group")
+                    label(for="name" class="font-weight-bold") Nombre
+                    input(type="text", name="name", id="title")
+                div(class="form-group")
+                    label(for="price" class="font-weight-bold") Precio
+                    input(type="number", name="price", id="price")
+                button(type="submit" class="btn btn-success mt-3 mb-5") Enviar
+            h3(class="text-primary") Productos agregados 
+                -if(productos.length > 0)
+                    div(class="table-responsive") 
+                        table(class="table table-dark")
+                            tr(class="text-warning") 
+                                th(class="font-weight-bold") Nombre
+                                th(class="font-weight-bold") Precio
+                            each producto in productos
+                                tr 
+                                    td= producto.name
+                                    td= producto.price
+                -else
+                    h3(class="alert alert-danger") no se encontraron datos

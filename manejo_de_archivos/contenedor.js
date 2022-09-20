@@ -8,7 +8,8 @@ class Contenedor {
 
     async addProduct(producto) {
         try {
-            let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
+            producto.id = await this.getNextId()
+            let contenido = await fs.promises.readFile(`${this.nombre}`, 'utf-8');
             let contenidoJson = JSON.parse(contenido);
             contenidoJson.push(producto);
             await fs.promises.writeFile(`./${this.nombre}`, JSON.stringify(contenidoJson));
@@ -66,7 +67,7 @@ class Contenedor {
 
     async getAll() {
         try {
-            let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
+            let contenido = await fs.promises.readFile(`${this.nombre}`, 'utf-8');
             let contenidoJson = JSON.parse(contenido);
             return contenidoJson;
         }
@@ -107,7 +108,7 @@ class Contenedor {
     }
 }
 
-let contenedor = new Contenedor('./productos.json');
+// let contenedor = new Contenedor('./productos.json');
 
 /* let contenidoNuevo = {
     "id": 4,
@@ -115,7 +116,7 @@ let contenedor = new Contenedor('./productos.json');
     "precio": 1000
 } */
 
-contenedor.addProduct().then(() => console.log('producto agregado'));   
+// contenedor.addProduct().then(() => console.log('producto agregado'));   
 
 /* contenedor.save().then(rtapromise => {
     console.log(rtapromise);
@@ -126,7 +127,7 @@ contenedor.addProduct().then(() => console.log('producto agregado'));
 }
 ) */
 
-contenedor.getAll().then(result => result).then(result => console.log(result));
+// contenedor.getAll().then(result => result).then(result => console.log(result));
 
 
 /* contenedor.deleteById(2).then( result => {

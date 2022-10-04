@@ -1,4 +1,3 @@
-
 const express = require('express')
 const apiRoutes = require('./routers/app.routers');
 const Contenedor = require('../manejo_de_archivos/contenedor')
@@ -15,10 +14,10 @@ const io = new SocketServer(httpServer)
 
 // hbs
 app.engine('handlebars', engine({
-  extname: ".handlebars",
-  defaultLayout: "main.handlebars",
-  layoutsDir: __dirname + "/hbs/views/layouts",
-  partialsDir: __dirname + "/hbs/views/partials",
+    extname: ".handlebars",
+    defaultLayout: "main.handlebars",
+    layoutsDir: __dirname + "/hbs/views/layouts",
+    partialsDir: __dirname + "/hbs/views/partials",
 }));
 
 app.set('views', './hbs/views');
@@ -38,20 +37,20 @@ app.use('/api', apiRoutes);
 
 // hbs
 app.get('/productoshbs', (req, res) => {
-  contenedor.getAll().then((p) => {
-    res.render('indexhbs', { productos: p });
-  })
+    contenedor.getAll().then((p) => {
+        res.render('indexhbs', { productos: p });
+    })
 });
 
 app.post('/productoshbs', (req, res) => {
-  contenedor.addProduct(req.body).then(() => {
-    res.redirect('/productoshbs');
-  })
+    contenedor.addProduct(req.body).then(() => {
+        res.redirect('/productoshbs');
+    })
 });
 
 // Server
 const connectedServer = httpServer.listen(PORT, () => {
-  console.log(`Server is up and running on port ${PORT}`);
+    console.log(`Server is up and running on port ${PORT}`);
 });
 
 connectedServer.on('error', error => console.log(`Server error: ${error}`));
@@ -59,23 +58,19 @@ connectedServer.on('error', error => console.log(`Server error: ${error}`));
 // Socket events
 
 io.on('connection', (socket) => {
-  console.log('nuevo client conectado')
-  console.log(socket.id)
+    socket.emit('producto', contenedor.getAll())
 
-  socket.emit('producto', contenedor.getAll())
+    socket.on('productos', (producto) => {
+        contenedor.addProduct(producto).then(async() => {
+            io.sockets.emit('server-productos', await contenedor.getAll())
+        })
+    })
 
-  socket.on('productos', (producto) => {
-    contenedor.addProduct(producto)
-    io.sockets.emit('server-productos', contenedor.getAll())
-  })
+    socket.emit('mensajes', chat.getAll());
 
-  socket.emit('mensajes', chat.getAll());
-
-  socket.on('nuevoMensaje', async mensaje => {
-    mensaje.fyh = new Date().toLocaleString()
-    await chat.save(mensaje)
-    io.sockets.emit('mensajes', await chat.getAll());
-  })
+    socket.on('nuevoMensaje', async mensaje => {
+        mensaje.fyh = new Date().toLocaleString()
+        await chat.save(mensaje)
+        io.sockets.emit('mensajes', await chat.getAll());
+    })
 })
-
-

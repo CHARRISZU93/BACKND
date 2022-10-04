@@ -3,24 +3,23 @@ const socket = io.connect()
 const info = document.getElementById('formulario')
 
 info.addEventListener('submit', (event) => {
-    e.preventDefault()
+    event.preventDefault()
     const producto = {
-        name: info[0].value,
-        price: info[1].value,
+        name: document.getElementById('name').value,
+        price: document.getElementById('price').value,
     }
     socket.emit('productos', producto)
     info.reset()
 })
 
-socket.on('productosprecio', (productos) => {
+socket.on('server-productos', (productos) => {
     tablaHtml(productos).then(html => {
         document.getElementById('productos').innerHTML = html
     })
-}
-)
+})
 
 function tablaHtml(productos) {
-    return fetch('partials/form.handlebars')
+    return fetch('history.handlebars')
         .then(respuesta => respuesta.text())
         .then(plantilla => {
             const template = Handlebars.compile(plantilla);
@@ -28,4 +27,3 @@ function tablaHtml(productos) {
             return html
         })
 }
-

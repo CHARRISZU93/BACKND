@@ -4,7 +4,6 @@ const Contenedor = require('../manejo_de_archivos/contenedor')
 const { engine } = require("express-handlebars")
 const { Server: HttpServer } = require('http')
 const { Server: SocketServer } = require('socket.io')
-const Chat = require('./chat.json')
 
 const PORT = process.env.PORT || 8080;
 
@@ -48,6 +47,19 @@ app.post('/productoshbs', (req, res) => {
     })
 });
 
+app.get('/productoshbs', (req, res) => {
+    chat.getAll().then((c) => {
+        res.render('indexhbs', { chat: c });
+    })
+});
+
+app.post('/productoshbs', (req, res) => {
+    chat.addProduct(req.body).then(() => {
+        res.redirect('/productoshbs');
+    })
+});
+
+
 // Server
 const connectedServer = httpServer.listen(PORT, () => {
     console.log(`Server is up and running on port ${PORT}`);
@@ -68,9 +80,9 @@ io.on('connection', (socket) => {
 
     socket.emit('mensajes', chat.getAll());
 
-    socket.on('nuevoMensaje', async mensaje => {
+    socket.on('nuevoMensaje', async (mensaje) => {
         mensaje.fyh = new Date().toLocaleString()
-        await chat.save(mensaje)
+        await chat.saveMessage(mensaje)
         io.sockets.emit('mensajes', await chat.getAll());
     })
 })

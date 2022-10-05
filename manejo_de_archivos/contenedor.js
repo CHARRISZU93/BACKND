@@ -48,6 +48,21 @@ class Contenedor {
         return id
     }
 
+    async saveMessage(info) {
+        try {
+            let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');
+            let contenidoJson = JSON.parse(contenido);
+            contenidoJson.push(info);
+            await fs.promises.writeFile(`./${this.nombre}`, JSON.stringify(contenidoJson));
+
+            return contenidoJson;
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
     async getById(id) {
         try {
             let contenido = await fs.promises.readFile(`./${this.nombre}`, 'utf-8');

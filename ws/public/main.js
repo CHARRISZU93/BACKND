@@ -19,7 +19,7 @@ socket.on('server-productos', (productos) => {
 })
 
 function tablaHtml(productos) {
-    return fetch('history.handlebars')
+    return fetch('/partials/history.handlebars')
         .then(respuesta => respuesta.text())
         .then(plantilla => {
             const template = Handlebars.compile(plantilla);
@@ -74,4 +74,4 @@ inputUsername.addEventListener('input', () => {
 inputMensaje.addEventListener('input', () => {
     const hayTexto = inputMensaje.value.length
     btnEnviar.disabled = !hayTexto
-})
+}) 

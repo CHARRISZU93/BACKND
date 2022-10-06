@@ -15,11 +15,11 @@ const io = new SocketServer(httpServer)
 app.engine('handlebars', engine({
     extname: ".handlebars",
     defaultLayout: "main.handlebars",
-    layoutsDir: __dirname + "/hbs/views/layouts",
-    partialsDir: __dirname + "/hbs/views/partials",
+    layoutsDir: __dirname + "/public/layouts",
+    partialsDir: __dirname + "/public/partials",
 }));
 
-app.set('views', './hbs/views');
+app.set('views', './public');
 app.set('view engine', 'handlebars');
 
 
@@ -69,7 +69,7 @@ connectedServer.on('error', error => console.log(`Server error: ${error}`));
 
 // Socket events
 
-io.on('connection', (socket) => {
+io.on('connection', async (socket) => {
     socket.emit('producto', contenedor.getAll())
 
     socket.on('productos', (producto) => {
@@ -78,7 +78,7 @@ io.on('connection', (socket) => {
         })
     })
 
-    socket.emit('mensajes', chat.getAll());
+    socket.emit('mensajes', await chat.getAll());
 
     socket.on('nuevoMensaje', async (mensaje) => {
         mensaje.fyh = new Date().toLocaleString()

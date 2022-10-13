@@ -1,5 +1,6 @@
 const express = require('express');
 const products = require('../../manejo_de_archivos/productos.json');
+const admin = require('../middleware/admin')
 
 const router = express.Router();
 
@@ -30,10 +31,7 @@ router.get('/:productId', (req, res) => {
   return res.json({ success: true, result: product });
 })
 
-router.post('/new', (req, res) => {
-  if (!req.headers["isAdmin"]) {
-    return res.status(401).json({ success: false, error: 'No autorizado' })
-  }
+router.post('/new', admin, (req, res) => {
   const { name, descrp, cod, img, price, stock } = req.body;
   if (!name || !price) {
     return res.status(400).json({ success: false, error: 'Please provide name and price' });
@@ -52,10 +50,7 @@ router.post('/new', (req, res) => {
   return res.status(201).json({ success: true, result: newProduct });
 })
 
-router.put('/:productId', (req, res) => {
-  if (!req.headers["isAdmin"]) {
-    return res.status(401).json({ success: false, error: 'No autorizado' })
-  }
+router.put('/:productId', admin, (req, res) => {
   const { params: { productId }, body: { name, descrp, cod, img, price, stock } } = req;
   if (!name || !descrp || !cod || !img || !price || !stock) {
     return res.status(400).json({ success: false, error: 'Wrong body format' });
@@ -66,10 +61,7 @@ router.put('/:productId', (req, res) => {
   return res.json({ success: true, result: newProduct });
 });
 
-router.delete('/:productId', (req, res) => {
-  if (!req.headers["isAdmin"]) {
-    return res.status(401).json({ success: false, error: 'No autorizado' })
-  }
+router.delete('/:productId', admin, (req, res) => {
   const { productId } = req.params;
   const productIndex = products.findIndex(product => product.id === +productId);
   if (productIndex < 0) return res.status(404).json({ success: false, error: `Product with id ${productId} does not exist!` });

@@ -3,7 +3,7 @@ const knex = require("knex")(dbConfig.mariaDB);
 
 class Contenedor {
   constructor(config) {
-    this.dbConfig = dbConfig;
+    this.knex = knex(config);
   }
 
   async addProduct(producto) {
@@ -101,7 +101,7 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-      /* knex.destroy(); */
+      knex.destroy();
     }
   }
 

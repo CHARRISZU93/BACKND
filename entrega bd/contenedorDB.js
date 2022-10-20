@@ -1,5 +1,5 @@
 const dbConfig = require("./db/config");
-const knex = require("knex")(dbConfig.mySQL);
+const knex = require("knex")(dbConfig.mariaDB);
 
 class Contenedor {
   constructor(config) {
@@ -101,7 +101,7 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-      knex.destroy();
+      /* knex.destroy(); */
     }
   }
 

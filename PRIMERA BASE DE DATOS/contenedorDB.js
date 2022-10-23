@@ -1,5 +1,4 @@
-const dbConfig = require("./db/config");
-const knex = require("knex")(dbConfig.mariaDB);
+const knex = require("knex");
 
 class Contenedor {
   constructor(config) {
@@ -12,7 +11,7 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-      knex.destroy();
+
     }
   }
 
@@ -39,7 +38,7 @@ class Contenedor {
       return chatId;
     } catch (error) {
     } finally {
-      knex.destroy();
+
     }
   }
 
@@ -49,7 +48,7 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-      knex.destroy();
+
     }
   }
 
@@ -57,7 +56,7 @@ class Contenedor {
     try {
       let data = await this.knex
         .from("bdproductos")
-        .select("id", "nombre", "precio");
+        .select("id", "name", "price");
       let contenidoFiltrado;
       data.forEach((chat) => {
         if (chat.id == id) {
@@ -68,20 +67,20 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-      knex.destroy();
+
     }
   }
 
   async getAll() {
     try {
-      let data = await this.knex
-        .from("bdproductos")
-        .select("id", "nombre", "precio");
+      let data = await this.knex("bdproductos")
+        .select("id", "name", "price");
       return data;
     } catch (error) {
-      console.log(error);
+
+      console.log("error::::::::", error);
     } finally {
-      knex.destroy();
+
     }
   }
 
@@ -89,7 +88,7 @@ class Contenedor {
     try {
       let data = await this.knex
         .from("bdproductos")
-        .select("id", "nombre", "precio");
+        .select("id", "name", "price");
       let contenidoFiltrado;
       data.forEach((chat) => {
         if (chat.id == id) {
@@ -101,7 +100,7 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-      knex.destroy();
+
     }
   }
 
@@ -111,7 +110,7 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-      knex.destroy();
+
     }
   }
 }

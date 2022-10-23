@@ -16,6 +16,17 @@ module.exports = {
     },
     migrations:{
       directory: './db/migrations'
+    },
+    pool: {
+      min: 0,
+      max: 10
     }
   },
+  sqlite:{
+    client:"sqlite3",
+    connection: {
+      filename: '../db/sqlite/chat.sqlite'
+    }, 
+    useNullAsDefault: true
+  }
 };

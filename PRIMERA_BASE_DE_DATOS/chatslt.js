@@ -1,19 +1,20 @@
 const dbConfig = require("./knexfile");
-const knex = require('knex')(dbConfig.sqlite);
+const knex = require("knex")(dbConfig.sqlite);
 
-async () => {
+(async () => {
   try {
-    const exist = await knex.schema.hasTable("chats");
+    const exist = await knex.schema.hasTable("chat");
     if (!exist) {
-      await knex.schema.createTable("chats", (table) => {
+      await knex.schema.createTable("chat", (table) => {
         table.increments("id").primary();
-        table.string("username").notNullable();
-        table.string("inputMessage").notNullable();
+        table.string("autor").notNullable();
+        table.string("fyh").notNullable();
+        table.string("texto").notNullable();
       });
-      console.log('hola')
+      console.log("creado");
     }
   } catch (error) {
     console.log(error);
   } finally {
   }
-};
+})();

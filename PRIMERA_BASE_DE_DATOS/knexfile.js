@@ -1,4 +1,4 @@
-const knex = require('knex')
+const knex = require("knex");
 
 // Update with your config settings.
 
@@ -14,19 +14,19 @@ module.exports = {
       user: "root",
       database: "productos",
     },
-    migrations:{
-      directory: './db/migrations'
+    migrations: {
+      directory: "./db/migrations",
     },
     pool: {
       min: 0,
-      max: 10
-    }
+      max: 10,
+    },
   },
-  sqlite:{
-    client:"sqlite3",
+  sqlite: {
+    client: "sqlite3",
     connection: {
-      filename: '../db/sqlite/chat.sqlite'
-    }, 
-    useNullAsDefault: true
-  }
+      filename: "./db/sqlite/chat.sqlite",
+    },
+    useNullAsDefault: true,
+  },
 };

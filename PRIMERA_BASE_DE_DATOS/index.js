@@ -1,6 +1,7 @@
 const express = require("express");
 const apiRoutes = require("./routers/app.routers");
 const ecommerce = require("./contenedorDB");
+const Chat = require("./contenedorChat");
 const dbEcommerce = require("./knexfile");
 const { engine } = require("express-handlebars");
 const { Server: HttpServer } = require("http");
@@ -27,7 +28,7 @@ app.set("views", "./public");
 app.set("view engine", "handlebars");
 
 const bdProduct = new ecommerce(dbEcommerce.development);
-const chat = new ecommerce(dbEcommerce.sqlite);
+const chat = new Chat(dbEcommerce.sqlite);
 
 // Middlewares
 app.use(express.json());

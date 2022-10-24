@@ -11,7 +11,6 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-
     }
   }
 
@@ -31,14 +30,13 @@ class Contenedor {
   async save(producto) {
     try {
       await this.knex("bdproductos").insert(producto);
-      let indexSelected = await this.knex.from("chat").select("id");
+      let indexSelected = await this.knex.from("bdproductos").select("id");
       let ultimoId = indexSelected[indexSelected.length - 1].id;
       let chatId = ultimoId;
 
       return chatId;
     } catch (error) {
     } finally {
-
     }
   }
 
@@ -48,7 +46,6 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-
     }
   }
 
@@ -67,20 +64,16 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-
     }
   }
 
   async getAll() {
     try {
-      let data = await this.knex("bdproductos")
-        .select("id", "name", "price");
+      let data = await this.knex("bdproductos").select("id", "name", "price");
       return data;
     } catch (error) {
-
       console.log("error::::::::", error);
     } finally {
-
     }
   }
 
@@ -100,7 +93,6 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-
     }
   }
 
@@ -110,7 +102,6 @@ class Contenedor {
     } catch (error) {
       console.log(error);
     } finally {
-
     }
   }
 }

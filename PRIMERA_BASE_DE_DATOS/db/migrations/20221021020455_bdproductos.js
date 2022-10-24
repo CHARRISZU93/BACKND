@@ -21,6 +21,6 @@ module.exports.up = async function (knex) {
 module.exports.down = async function (knex) {
   const exist = await knex.schema.hasTable("bdproductos");
   if (exist) {
-    return knex.schema.dropTable('bdproductos')
+    return knex.schema.dropTable("bdproductos");
   }
 };

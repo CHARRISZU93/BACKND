@@ -1,0 +1,426 @@
+use ECOMMERCE
+'switched to db ECOMMERCE'
+db.mensajes.insertMany([
+    {
+        "autor": "reheacock@mjdfv.com",
+        "fyh": "1641008346",
+        "texto": "hola"
+    },
+    {
+        "autor": "daemomorge@truemeanji.com",
+        "fyh": "1643686746",
+        "texto": "soy yo"
+    },
+    {
+        "autor": "mrroblewis@companyprogram.biz",
+        "fyh": "1646105946",
+        "texto": "como vas"
+    },
+    {
+        "autor": "ajcaajca@kacakbudalngaji.com",
+        "fyh": "1648784346",
+        "texto": "bien"
+    },
+    {
+        "autor": "pcbdaydreamer@mailpluss.com",
+        "fyh": "1651376346",
+        "texto": "aqui estoy"
+    },
+    {
+        "autor": "slipknotvsstonesour@smakit.vn",
+        "fyh": "1654054746",
+        "texto": "donde"
+    },
+    {
+        "autor": "ingvet@shiro.pw",
+        "fyh": "1656646746",
+        "texto": "en NYC"
+    },
+    {
+        "autor": "adiezma@fashionsell.website",
+        "fyh": "1659325146",
+        "texto": "genial"
+    },
+    {
+        "autor": "karennerak@chantellegribbon.com",
+        "fyh": "1662003546",
+        "texto": "cuando nos vemos"
+    },
+    {
+        "autor": "ninapana@icsfinomornasco.it",
+        "fyh": "1664595546",
+        "texto": "mañana"
+    }
+])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("636079cdb1470f0c464b0259"),
+     '1': ObjectId("636079cdb1470f0c464b025a"),
+     '2': ObjectId("636079cdb1470f0c464b025b"),
+     '3': ObjectId("636079cdb1470f0c464b025c"),
+     '4': ObjectId("636079cdb1470f0c464b025d"),
+     '5': ObjectId("636079cdb1470f0c464b025e"),
+     '6': ObjectId("636079cdb1470f0c464b025f"),
+     '7': ObjectId("636079cdb1470f0c464b0260"),
+     '8': ObjectId("636079cdb1470f0c464b0261"),
+     '9': ObjectId("636079cdb1470f0c464b0262") } }
+db.mensajes.find()
+{ _id: ObjectId("636079cdb1470f0c464b0259"),
+  autor: 'reheacock@mjdfv.com',
+  fyh: '1641008346',
+  texto: 'hola' }
+{ _id: ObjectId("636079cdb1470f0c464b025a"),
+  autor: 'daemomorge@truemeanji.com',
+  fyh: '1643686746',
+  texto: 'soy yo' }
+{ _id: ObjectId("636079cdb1470f0c464b025b"),
+  autor: 'mrroblewis@companyprogram.biz',
+  fyh: '1646105946',
+  texto: 'como vas' }
+{ _id: ObjectId("636079cdb1470f0c464b025c"),
+  autor: 'ajcaajca@kacakbudalngaji.com',
+  fyh: '1648784346',
+  texto: 'bien' }
+{ _id: ObjectId("636079cdb1470f0c464b025d"),
+  autor: 'pcbdaydreamer@mailpluss.com',
+  fyh: '1651376346',
+  texto: 'aqui estoy' }
+{ _id: ObjectId("636079cdb1470f0c464b025e"),
+  autor: 'slipknotvsstonesour@smakit.vn',
+  fyh: '1654054746',
+  texto: 'donde' }
+{ _id: ObjectId("636079cdb1470f0c464b025f"),
+  autor: 'ingvet@shiro.pw',
+  fyh: '1656646746',
+  texto: 'en NYC' }
+{ _id: ObjectId("636079cdb1470f0c464b0260"),
+  autor: 'adiezma@fashionsell.website',
+  fyh: '1659325146',
+  texto: 'genial' }
+{ _id: ObjectId("636079cdb1470f0c464b0261"),
+  autor: 'karennerak@chantellegribbon.com',
+  fyh: '1662003546',
+  texto: 'cuando nos vemos' }
+{ _id: ObjectId("636079cdb1470f0c464b0262"),
+  autor: 'ninapana@icsfinomornasco.it',
+  fyh: '1664595546',
+  texto: 'mañana' }
+db.mensajes.countDocuments()
+10
+db.productos.insertMany([
+    {
+        "name": "arroz",
+        "price": 120
+    },
+    {
+        "name": "aceite",
+        "price": 580
+    },
+    {
+        "name": "cebolla",
+        "price": 900
+    },
+    {
+        "name": "pollo",
+        "price": 1280
+    },
+    {
+        "name": "carne",
+        "price": 1700
+    },
+    {
+        "name": "lentejas",
+        "price": 2300
+    },
+    {
+        "name": "queso",
+        "price": 2860
+    },
+    {
+        "name": "carbon",
+        "price": 3350
+    },
+    {
+        "name": "manzana",
+        "price": 4320
+    },
+    {
+        "name": "salmon",
+        "price": 4990
+    }
+])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("63607a50b1470f0c464b0263"),
+     '1': ObjectId("63607a50b1470f0c464b0264"),
+     '2': ObjectId("63607a50b1470f0c464b0265"),
+     '3': ObjectId("63607a50b1470f0c464b0266"),
+     '4': ObjectId("63607a50b1470f0c464b0267"),
+     '5': ObjectId("63607a50b1470f0c464b0268"),
+     '6': ObjectId("63607a50b1470f0c464b0269"),
+     '7': ObjectId("63607a50b1470f0c464b026a"),
+     '8': ObjectId("63607a50b1470f0c464b026b"),
+     '9': ObjectId("63607a50b1470f0c464b026c") } }
+db.productos.find()
+{ _id: ObjectId("63607a50b1470f0c464b0263"),
+  name: 'arroz',
+  price: 120 }
+{ _id: ObjectId("63607a50b1470f0c464b0264"),
+  name: 'aceite',
+  price: 580 }
+{ _id: ObjectId("63607a50b1470f0c464b0265"),
+  name: 'cebolla',
+  price: 900 }
+{ _id: ObjectId("63607a50b1470f0c464b0266"),
+  name: 'pollo',
+  price: 1280 }
+{ _id: ObjectId("63607a50b1470f0c464b0267"),
+  name: 'carne',
+  price: 1700 }
+{ _id: ObjectId("63607a50b1470f0c464b0268"),
+  name: 'lentejas',
+  price: 2300 }
+{ _id: ObjectId("63607a50b1470f0c464b0269"),
+  name: 'queso',
+  price: 2860 }
+{ _id: ObjectId("63607a50b1470f0c464b026a"),
+  name: 'carbon',
+  price: 3350 }
+{ _id: ObjectId("63607a50b1470f0c464b026b"),
+  name: 'manzana',
+  price: 4320 }
+{ _id: ObjectId("63607a50b1470f0c464b026c"),
+  name: 'salmon',
+  price: 4990 }
+db.productos.countDocuments()
+10
+db.productos.insertOne({"name":"leche", "price": 3456})
+{ acknowledged: true,
+  insertedId: ObjectId("63607ab3b1470f0c464b026d") }
+db.productos.countDocuments()
+11
+db.productos.find({"price": {$lt: 1000}})
+{ _id: ObjectId("63607a50b1470f0c464b0263"),
+  name: 'arroz',
+  price: 120 }
+{ _id: ObjectId("63607a50b1470f0c464b0264"),
+  name: 'aceite',
+  price: 580 }
+{ _id: ObjectId("63607a50b1470f0c464b0265"),
+  name: 'cebolla',
+  price: 900 }
+db.productos.find({"price": [{$gt: 1000},{$lt: 3000}]})
+db.productos.find({$and:[{"price": [{$gt: 1000},{$lt: 3000}]}]})
+db.productos.find({$and:[{"price": {$gt: 1000}},{"price":{$lt: 3000}}]})
+{ _id: ObjectId("63607a50b1470f0c464b0266"),
+  name: 'pollo',
+  price: 1280 }
+{ _id: ObjectId("63607a50b1470f0c464b0267"),
+  name: 'carne',
+  price: 1700 }
+{ _id: ObjectId("63607a50b1470f0c464b0268"),
+  name: 'lentejas',
+  price: 2300 }
+{ _id: ObjectId("63607a50b1470f0c464b0269"),
+  name: 'queso',
+  price: 2860 }
+db.productos.find({"price": {$gt: 3000}})
+{ _id: ObjectId("63607a50b1470f0c464b026a"),
+  name: 'carbon',
+  price: 3350 }
+{ _id: ObjectId("63607a50b1470f0c464b026b"),
+  name: 'manzana',
+  price: 4320 }
+{ _id: ObjectId("63607a50b1470f0c464b026c"),
+  name: 'salmon',
+  price: 4990 }
+{ _id: ObjectId("63607ab3b1470f0c464b026d"),
+  name: 'leche',
+  price: 3456 }
+db.productos.find({}).sort({"price": 1}).skip(2).limit(1)
+{ _id: ObjectId("63607a50b1470f0c464b0265"),
+  name: 'cebolla',
+  price: 900 }
+db.productos.update({},{$set: {"stock": 100}})
+'DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.'
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+db.productos.find()
+{ _id: ObjectId("63607a50b1470f0c464b0263"),
+  name: 'arroz',
+  price: 120,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0264"),
+  name: 'aceite',
+  price: 580 }
+{ _id: ObjectId("63607a50b1470f0c464b0265"),
+  name: 'cebolla',
+  price: 900 }
+{ _id: ObjectId("63607a50b1470f0c464b0266"),
+  name: 'pollo',
+  price: 1280 }
+{ _id: ObjectId("63607a50b1470f0c464b0267"),
+  name: 'carne',
+  price: 1700 }
+{ _id: ObjectId("63607a50b1470f0c464b0268"),
+  name: 'lentejas',
+  price: 2300 }
+{ _id: ObjectId("63607a50b1470f0c464b0269"),
+  name: 'queso',
+  price: 2860 }
+{ _id: ObjectId("63607a50b1470f0c464b026a"),
+  name: 'carbon',
+  price: 3350 }
+{ _id: ObjectId("63607a50b1470f0c464b026b"),
+  name: 'manzana',
+  price: 4320 }
+{ _id: ObjectId("63607a50b1470f0c464b026c"),
+  name: 'salmon',
+  price: 4990 }
+{ _id: ObjectId("63607ab3b1470f0c464b026d"),
+  name: 'leche',
+  price: 3456 }
+db.productos.updateMany({},{$set: {"stock": 100}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 11,
+  modifiedCount: 10,
+  upsertedCount: 0 }
+db.productos.find()
+{ _id: ObjectId("63607a50b1470f0c464b0263"),
+  name: 'arroz',
+  price: 120,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0264"),
+  name: 'aceite',
+  price: 580,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0265"),
+  name: 'cebolla',
+  price: 900,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0266"),
+  name: 'pollo',
+  price: 1280,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0267"),
+  name: 'carne',
+  price: 1700,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0268"),
+  name: 'lentejas',
+  price: 2300,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0269"),
+  name: 'queso',
+  price: 2860,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b026a"),
+  name: 'carbon',
+  price: 3350,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b026b"),
+  name: 'manzana',
+  price: 4320,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b026c"),
+  name: 'salmon',
+  price: 4990,
+  stock: 100 }
+{ _id: ObjectId("63607ab3b1470f0c464b026d"),
+  name: 'leche',
+  price: 3456,
+  stock: 100 }
+db.productos.updateMany({"price": {$gt:4000}},{$set: {"stock": 0}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+db.productos.find()
+{ _id: ObjectId("63607a50b1470f0c464b0263"),
+  name: 'arroz',
+  price: 120,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0264"),
+  name: 'aceite',
+  price: 580,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0265"),
+  name: 'cebolla',
+  price: 900,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0266"),
+  name: 'pollo',
+  price: 1280,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0267"),
+  name: 'carne',
+  price: 1700,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0268"),
+  name: 'lentejas',
+  price: 2300,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0269"),
+  name: 'queso',
+  price: 2860,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b026a"),
+  name: 'carbon',
+  price: 3350,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b026b"),
+  name: 'manzana',
+  price: 4320,
+  stock: 0 }
+{ _id: ObjectId("63607a50b1470f0c464b026c"),
+  name: 'salmon',
+  price: 4990,
+  stock: 0 }
+{ _id: ObjectId("63607ab3b1470f0c464b026d"),
+  name: 'leche',
+  price: 3456,
+  stock: 100 }
+db.productos.deleteMany({"price": {$lt: 1000}})
+{ acknowledged: true, deletedCount: 3 }
+db.productos.find()
+{ _id: ObjectId("63607a50b1470f0c464b0266"),
+  name: 'pollo',
+  price: 1280,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0267"),
+  name: 'carne',
+  price: 1700,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0268"),
+  name: 'lentejas',
+  price: 2300,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b0269"),
+  name: 'queso',
+  price: 2860,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b026a"),
+  name: 'carbon',
+  price: 3350,
+  stock: 100 }
+{ _id: ObjectId("63607a50b1470f0c464b026b"),
+  name: 'manzana',
+  price: 4320,
+  stock: 0 }
+{ _id: ObjectId("63607a50b1470f0c464b026c"),
+  name: 'salmon',
+  price: 4990,
+  stock: 0 }
+{ _id: ObjectId("63607ab3b1470f0c464b026d"),
+  name: 'leche',
+  price: 3456,
+  stock: 100 }
+use admin
+'switched to db admin'
+db.createUser({"user": "pepe", "pwd": "asd456", "roles": ["read"]})
+{ ok: 1 }

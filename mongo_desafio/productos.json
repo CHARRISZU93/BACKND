@@ -1,0 +1,42 @@
+[
+    {
+        "name": "arroz",
+        "price": 120
+    },
+    {
+        "name": "aceite",
+        "price": 580
+    },
+    {
+        "name": "cebolla",
+        "price": 900
+    },
+    {
+        "name": "pollo",
+        "price": 1280
+    },
+    {
+        "name": "carne",
+        "price": 1700
+    },
+    {
+        "name": "lentejas",
+        "price": 2300
+    },
+    {
+        "name": "queso",
+        "price": 2860
+    },
+    {
+        "name": "carbon",
+        "price": 3350
+    },
+    {
+        "name": "manzana",
+        "price": 4320
+    },
+    {
+        "name": "salmon",
+        "price": 4990
+    }
+]

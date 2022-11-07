@@ -8,7 +8,7 @@ const app = express();
 // const PORT = process.env.PORT || 8080;
 
 const DATABASE = "products";
-const URI = `mongodb+srv://charriszu:Manuel003202@products.d8cydn4.mongodb.net/${DATABASE}`;
+const URI = `mongodb+srv://charriszu:Manuel0.0.3.2@products.d8cydn4.mongodb.net/${DATABASE}`;
 
 
 (async ()=>{

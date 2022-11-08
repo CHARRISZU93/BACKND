@@ -1,25 +1,10 @@
 const express = require('express');
 const apiRoutes = require('./routers/app.routes.js');
-const mongoose = require('mongoose')
 //const Contenedor = require('../manejo_de_archivos/contenedor')
 
 const app = express();
 
-// const PORT = process.env.PORT || 8080;
-
-const DATABASE = "products";
-const URI = `mongodb+srv://charriszu:Manuel0.0.3.2@products.d8cydn4.mongodb.net/${DATABASE}`;
-
-
-(async ()=>{
-  try{
-    await mongoose.connect(URI);
-    console.log("conectado a la base de datos");
-  }
-  catch(error){
-    console.log(error.message)
-  }
-})();
+const PORT = process.env.PORT || 8080;
 
 // Middlewares
 app.use(express.json());
@@ -30,8 +15,8 @@ app.use(express.static('public'));
 app.use('/api', apiRoutes);
 
 // Server
-const connectedServer = app.listen(URI, ()=> {
-  console.log(`Server is up and running on port ${URI}`);
+const connectedServer = app.listen(PORT, ()=> {
+  console.log(`Server is up and running on port ${PORT}`);
 });
 
 connectedServer.on('error', error => console.log(`Server error: ${error}`));

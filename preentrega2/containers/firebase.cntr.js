@@ -4,6 +4,7 @@ const dbConfig = require("../config/db.config");
 
 class Firebasecntr {
   constructor(collection) {
+    Firebasecntr.connect();
     const db = getFirestore();
     this.query = db.collection(collection);
   }
@@ -11,7 +12,8 @@ class Firebasecntr {
   static async connect() {
     admin.initializeApp({
       credential: admin.credential.cert(dbConfig.firebase.credentials),
-    });
+    })
+    console.log("conectado");
   }
 
   async getAll() {

@@ -11,4 +11,11 @@ switch (envConfig.DATASOURCE) {
   case "firebase":
     productosDao = require("./productos/productos.firebase.dao");
     carritoDao = require("./carrito/carrito.firebase.dao");
+  default:
+    throw new Error("no existe esta base");
+}
+
+module.exports = {
+    productosDao,
+    carritoDao,
 }

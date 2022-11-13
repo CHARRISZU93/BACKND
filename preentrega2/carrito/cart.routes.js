@@ -1,6 +1,5 @@
 const express = require('express');
 const carrito = require('./carritos.json');
-const product = require('../../manejo_de_archivos/productos.json')
 
 const router = express.Router();
 

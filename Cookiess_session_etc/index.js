@@ -82,7 +82,7 @@ app.post("/login", (req, res) => {
 
 app.get("/productoshbs", (req, res) => {
   contenedor.getAll().then((p) => {
-    res.render("indexhbs", { productos: p });
+    res.render("indexhbs", { productos: p, user: req.session.user });
   });
 });
 
